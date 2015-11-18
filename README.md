@@ -57,6 +57,7 @@ WriteResult({ "nInserted" : 1 })
 { "_id" : ObjectId("564be8f90eb28040d8c48aec"), "id" : 2, "age" : 18, "name" : "
 张三" }
 ```
+**这里的_id是系统自动生成的，类型是objectid**更多详情可以参考objectid.md
 **update修改数据**</br>
 ```
 > db.mytb.update({id:2},{$set:{name:"aaa"}},false,true)
