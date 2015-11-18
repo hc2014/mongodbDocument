@@ -42,7 +42,7 @@ WriteResult({ "nInserted" : 1 })
 { "_id" : ObjectId("564be66f0eb28040d8c48aeb"), "id" : 1, "age" : 18, "name" : "
 张三" }
 ```
-**条件查询**</br>
+**条件查询:find({id:2})相当于t_sql里面的where id=2**</br>
 ```
 > db.mytb.insert({id:2,age:18,name:"张三"})
 WriteResult({ "nInserted" : 1 })
@@ -57,4 +57,11 @@ WriteResult({ "nInserted" : 1 })
 { "_id" : ObjectId("564be8f90eb28040d8c48aec"), "id" : 2, "age" : 18, "name" : "
 张三" }
 ```
-**find({id:2})相当于t_sql里面的where id=2**
+**update修改数据**</br>
+```
+> db.mytb.update({id:2},{$set:{name:"aaa"}},false,true)
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.mytb.find({id:2})
+{ "_id" : ObjectId("564be8f90eb28040d8c48aec"), "id" : 2, "age" : 18, "name" : "
+aaa" }
+```
