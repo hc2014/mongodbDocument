@@ -14,9 +14,9 @@ e\db**
 admin  (empty)
 local  0.078GB
 ```
->**use mydb**这个是切换或者创建数据库(有则切换没有就创建)
->**db.createCollections**创建集合
->**show collections**显示集合
+**use mydb**这个是切换或者创建数据库(有则切换没有就创建)</br>
+**db.createCollections**创建集合</br>
+**show collections**显示集合
 ```
 > use mydb
 switched to db mydb
@@ -29,8 +29,8 @@ ell/utils.js:729
 mytb
 system.indexes
 ```
->**insert**插入数据
->**find**是查找数据
+**insert**插入数据</br>
+**find**是查找数据
 ```
 > db.mytb.insert({id:1,age:18,name:"张三"})))
 WriteResult({ "nInserted" : 1 })
@@ -42,3 +42,19 @@ WriteResult({ "nInserted" : 1 })
 { "_id" : ObjectId("564be66f0eb28040d8c48aeb"), "id" : 1, "age" : 18, "name" : "
 张三" }
 ```
+**条件查询**</br>
+```
+> db.mytb.insert({id:2,age:18,name:"张三"})
+WriteResult({ "nInserted" : 1 })
+> db.mytb.find()
+{ "_id" : ObjectId("564be65f0eb28040d8c48aea"), "id" : 1, "age" : 18, "name" : "
+张三" }
+{ "_id" : ObjectId("564be66f0eb28040d8c48aeb"), "id" : 1, "age" : 18, "name" : "
+张三" }
+{ "_id" : ObjectId("564be8f90eb28040d8c48aec"), "id" : 2, "age" : 18, "name" : "
+张三" }
+> db.mytb.find({id:2})
+{ "_id" : ObjectId("564be8f90eb28040d8c48aec"), "id" : 2, "age" : 18, "name" : "
+张三" }
+```
+**find({id:2})相当于t_sql里面的where id=2**
