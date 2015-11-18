@@ -14,9 +14,9 @@ e\db**
 admin  (empty)
 local  0.078GB
 ```
-**use mydb**这个是切换或者创建数据库(有则切换没有就创建)
-**db.createCollections**创建集合
-**show collections**显示集合
+>**use mydb**这个是切换或者创建数据库(有则切换没有就创建)
+>**db.createCollections**创建集合
+>**show collections**显示集合
 ```
 > use mydb
 switched to db mydb
@@ -28,4 +28,17 @@ ell/utils.js:729
 > show collections
 mytb
 system.indexes
+```
+>**insert**插入数据
+>**find**是查找数据
+```
+> db.mytb.insert({id:1,age:18,name:"张三"})))
+WriteResult({ "nInserted" : 1 })
+> db.mytb.insert({id:1,age:18,name:"张三"})
+WriteResult({ "nInserted" : 1 })
+> db.mytb.find()
+{ "_id" : ObjectId("564be65f0eb28040d8c48aea"), "id" : 1, "age" : 18, "name" : "
+张三" }
+{ "_id" : ObjectId("564be66f0eb28040d8c48aeb"), "id" : 1, "age" : 18, "name" : "
+张三" }
 ```
